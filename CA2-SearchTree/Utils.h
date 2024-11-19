@@ -23,7 +23,7 @@ struct Games
 		this->rating = 0.0;
 	}
 	//Full Constructor
-	Games(string name,string developer, int year, string genre, int rating)
+	Games(string name,string developer, int year, string genre, float rating)
 	{
 		this->name = name;
 		this->developer = developer;
@@ -33,7 +33,7 @@ struct Games
 	}
 	friend ostream& operator<<(ostream& out, Games& b)
 	{
-		out <<"Game Name: " << b.name << " by " << b.developer << ",Year: " << b.year << ",Genre: "<<b.genre<<",Rating "<<b.rating;
+		out <<"" << b.name << " by" << b.developer << ",Year: " << b.year << ",Genre: "<<b.genre<<",Rating "<<b.rating;
 		return out;
 	}
 	bool operator <(Games& b)
@@ -52,7 +52,7 @@ struct Games
 //Printing out the variables in the tree
 ostream& operator<<(ostream& out, Games* b)
 {
-	out << "Game Name: " << b->name << " by " << b->developer << ",Year: " << b->year << ",Genre: " << b->genre << ",Rating " << b->rating;
+	out << "" << b->name << " by" << b->developer << ",Year: " << b->year << ",Genre: " << b->genre << ",Rating " << b->rating;
 	return out;
 }
 
@@ -68,8 +68,8 @@ void printBT(const string& prefix, BSTNode<T>* node, bool isLeft)
 		cout << node->getItem() << endl;
 
 		//Enter the next tree level - left and right
-		printBt(prefix + (isLeft ? "|  " : "   "), node->getLeft(), true);
-		printBy(prefix + (isLeft ? "|  " : "   "), node->getRight(), false);
+		printBT(prefix + (isLeft ? "|  " : "   "), node->getLeft(), true);
+		printBT(prefix + (isLeft ? "|  " : "   "), node->getRight(), false);
 
 	}
 }

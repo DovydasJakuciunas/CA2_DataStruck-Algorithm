@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CA2-SearchTree", "CA2-SearchTree\CA2-SearchTree.vcxproj", "{8D7C36A5-C68B-48B4-BA3D-9E63FC90DFCD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SearchTreeTest", "SearchTreeTest\SearchTreeTest.vcxproj", "{781069AB-22B1-4BB0-91C3-3432188DCEA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{8D7C36A5-C68B-48B4-BA3D-9E63FC90DFCD}.Release|x64.Build.0 = Release|x64
 		{8D7C36A5-C68B-48B4-BA3D-9E63FC90DFCD}.Release|x86.ActiveCfg = Release|Win32
 		{8D7C36A5-C68B-48B4-BA3D-9E63FC90DFCD}.Release|x86.Build.0 = Release|Win32
+		{781069AB-22B1-4BB0-91C3-3432188DCEA6}.Debug|x64.ActiveCfg = Debug|x64
+		{781069AB-22B1-4BB0-91C3-3432188DCEA6}.Debug|x64.Build.0 = Debug|x64
+		{781069AB-22B1-4BB0-91C3-3432188DCEA6}.Debug|x86.ActiveCfg = Debug|Win32
+		{781069AB-22B1-4BB0-91C3-3432188DCEA6}.Debug|x86.Build.0 = Debug|Win32
+		{781069AB-22B1-4BB0-91C3-3432188DCEA6}.Release|x64.ActiveCfg = Release|x64
+		{781069AB-22B1-4BB0-91C3-3432188DCEA6}.Release|x64.Build.0 = Release|x64
+		{781069AB-22B1-4BB0-91C3-3432188DCEA6}.Release|x86.ActiveCfg = Release|Win32
+		{781069AB-22B1-4BB0-91C3-3432188DCEA6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
