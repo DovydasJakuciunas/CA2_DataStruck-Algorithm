@@ -1,0 +1,100 @@
+The Legend of Zelda: Breath of the Wild		Nintendo	2008	Strategy	5.7
+Red Dead Redemption 2						Rockstar Games	2003	Sports	9.9
+The Witcher 3: Wild Hunt					CD Projekt Red	2019	Puzzle	2.9
+God of War									Santa Monica Studio	2008	Simulation	7.7
+Grand Theft Auto V							Rockstar North	2004	Sports	7.8
+Minecraft									Mojang Studios	2021	Strategy	8.4
+Dark Souls III								FromSoftware	1993	Sports	7.0
+Cyberpunk 2077					CD Projekt Red	1994	Simulation	4.9
+Hollow Knight	Team Cherry	2003	Puzzle	6.9
+Celeste	Maddy Makes Games	2011	Simulation	2.6
+Super Mario Odyssey	Nintendo	2013	Strategy	5.3
+Persona 5	Atlus	2009	Action	3.8
+Elden Ring	FromSoftware	2020	Sports	8.4
+Hades	Supergiant Games	1993	Adventure	5.7
+Overwatch	Blizzard Entertainment	2007	Strategy	5.0
+Stardew Valley	ConcernedApe	2013	Adventure	8.5
+The Last of Us Part II	Naughty Dog	2024	Puzzle	10.0
+Animal Crossing: New Horizons	Nintendo	2024	Action	8.8
+Bloodborne	FromSoftware	1991	Strategy	8.7
+Sekiro: Shadows Die Twice	FromSoftware	2000	Puzzle	8.2
+Half-Life: Alyx	Valve	2012	Action	2.4
+Doom Eternal	id Software	2024	Simulation	8.0
+Fortnite	Epic Games	2000	Simulation	3.2
+Among Us	InnerSloth	2018	Action	3.6
+Apex Legends	Respawn Entertainment	2014	Sports	8.5
+Assassin's Creed Valhalla	Ubisoft	1993	RPG	5.4
+Ghost of Tsushima	Sucker Punch Productions	1997	Action	2.6
+Spider-Man: Miles Morales	Insomniac Games	2016	Adventure	7.7
+Resident Evil Village	Capcom	2022	RPG	2.1
+Monster Hunter: World	Capcom	2002	Puzzle	9.8
+League of Legends	Riot Games	2006	RPG	4.5
+Valorant	Riot Games	2009	Puzzle	8.2
+Horizon Zero Dawn	Guerrilla Games	2013	Puzzle	2.3
+Metal Gear Solid V: The Phantom Pain	Kojima Productions	2017	Adventure	1.7
+Mass Effect 2	BioWare	2007	Sports	9.3
+Fallout 4	Bethesda Game Studios	2002	Strategy	7.7
+The Elder Scrolls V: Skyrim	Bethesda Game Studios	2016	Strategy	8.4
+Diablo III	Blizzard Entertainment	2018	Simulation	8.5
+Destiny 2	Bungie	2008	Puzzle	5.5
+Rocket League	Psyonix	2013	Adventure	9.3
+Terraria	Re-Logic	2007	Simulation	6.8
+Portal 2	Valve	2024	Strategy	7.1
+Left 4 Dead 2	Valve	2023	Simulation	2.8
+The Sims 4	Maxis	2011	Simulation	9.6
+Battlefield V	DICE	1995	RPG	9.0
+FIFA 23	EA Sports	2023	RPG	5.3
+Call of Duty: Modern Warfare II	Infinity Ward	1999	Sports	6.4
+Warframe	Digital Extremes	1998	Puzzle	7.6
+Tetris	Alexey Pajitnov	2024	Adventure	6.8
+Pac-Man	Namco	2012	RPG	9.7
+The Legend of Zelda: Ocarina of Time	Nintendo	2000	Adventure	4.9
+Halo Infinite	343 Industries	2010	Puzzle	6.2
+Forza Horizon 5	Playground Games	2012	Simulation	7.9
+Gran Turismo 7	Polyphony Digital	2016	RPG	2.5
+Super Smash Bros. Ultimate	Nintendo	2006	RPG	1.6
+Mario Kart 8 Deluxe	Nintendo	2024	Strategy	4.9
+Splatoon 3	Nintendo	2015	Sports	9.9
+The Binding of Isaac	Edmund McMillen	2017	Action	5.7
+Dead Cells	Motion Twin	2013	Action	3.6
+Cuphead	Studio MDHR	2005	Strategy	6.9
+Fall Guys	Mediatonic	1993	Simulation	9.6
+Yakuza 0	Ryu Ga Gotoku Studio	2015	Strategy	9.8
+Dead Space	EA Redwood Shores	2020	Adventure	6.0
+BioShock Infinite	Irrational Games	2003	Strategy	3.1
+Dishonored 2	Arkane Studios	1993	Puzzle	8.9
+Far Cry 5	Ubisoft	1995	Sports	3.0
+Star Wars Jedi: Fallen Order	Respawn Entertainment	2000	Puzzle	5.6
+Metro Exodus	4A Games	2005	Sports	6.3
+Rainbow Six Siege	Ubisoft	1998	Sports	7.0
+Control	Remedy Entertainment	2019	Puzzle	7.2
+Firewatch	Campo Santo	2015	RPG	7.0
+Inside	Playdead	1998	RPG	8.3
+Little Nightmares	Tarsier Studios	2003	Adventure	9.3
+Ori and the Will of the Wisps	Moon Studios	2001	Simulation	4.1
+Ratchet & Clank: Rift Apart	Insomniac Games	2008	RPG	7.3
+Returnal	Housemarque	2007	Action	2.4
+Death Stranding	Kojima Productions	1996	Simulation	2.2
+Nier: Automata	PlatinumGames	1997	RPG	3.5
+XCOM 2	Firaxis Games	1995	Sports	8.0
+Divinity: Original Sin 2	Larian Studios	1994	Puzzle	6.8
+Path of Exile	Grinding Gear Games	1999	Strategy	2.7
+Hollow Knight: Silksong	Team Cherry	2013	Sports	6.0
+Slay the Spire	MegaCrit	2004	Puzzle	1.0
+Subnautica	Unknown Worlds Entertainment	2002	Puzzle	9.5
+Outer Wilds	Mobius Digital	1994	Simulation	5.3
+The Witness	Thekla, Inc.	2023	Puzzle	5.0
+Factorio	Wube Software	1999	Simulation	6.6
+Kerbal Space Program	Squad	2009	Action	2.9
+No Man's Sky	Hello Games	2014	RPG	3.8
+Satisfactory	Coffee Stain Studios	2011	Simulation	4.2
+Phasmophobia	Kinetic Games	2004	RPG	7.9
+Dying Light 2	Techland	2014	Puzzle	2.9
+It Takes Two	Hazelight Studios	2013	RPG	4.9
+A Plague Tale: Requiem	Asobo Studio	2012	Action	4.5
+God of War Ragnarök	Santa Monica Studio	2008	Action	8.1
+Horizon Forbidden West	Guerrilla Games	2024	Puzzle	3.0
+Tunic	Andrew Shouldice	2002	Adventure	3.0
+Tiny Tina's Wonderlands	Gearbox Software	2002	Simulation	6.0
+Vampire Survivors	poncle	2010	Action	3.3
+Pentiment	Obsidian Entertainment	2016	RPG	1.5
