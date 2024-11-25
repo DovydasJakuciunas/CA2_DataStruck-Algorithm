@@ -102,3 +102,15 @@ void balance(BinaryTree<int>& tree)
 	createBalancedTree(tree, 0, max, arr);
 	delete[] arr;
 }
+
+void clear(BSTNode<Games>* node)
+{
+	if(node ==nullptr)
+		return;
+
+	clear(node->getLeft());
+	clear(node->getRight());
+
+	delete node;
+
+}
