@@ -48,6 +48,7 @@ struct Games
 	{
 		return name == b.name;
 	}
+
 };
 //Printing out the variables in the tree
 ostream& operator<<(ostream& out, Games* b)
@@ -103,14 +104,3 @@ void balance(BinaryTree<int>& tree)
 	delete[] arr;
 }
 
-void clear(BSTNode<Games>* node)
-{
-	if(node ==nullptr)
-		return;
-
-	clear(node->getLeft());
-	clear(node->getRight());
-
-	delete node;
-
-}

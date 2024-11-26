@@ -25,6 +25,7 @@ public:
 	void printPostOrder(BSTNode<T> *node);
 	T* toArray();
 	~BinaryTree();
+
 };
 
 template <class T>
@@ -145,7 +146,7 @@ bool BinaryTree<T>::remove(T& item)
 	{
 		smallestParent->setLeft(smallest->getRight());
 	}
-
+	return true;
 }
 template <class T>
 T& BinaryTree<T>::get(T& item)

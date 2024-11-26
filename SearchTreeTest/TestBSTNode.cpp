@@ -1,7 +1,5 @@
-
 #include "CppUnitTest.h"
 #include "../CA2-SearchTree/BinaryTree.h"
-
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -50,9 +48,9 @@ namespace SearchTreeTest
 		should be on the right. If we then add two children 5 and 7
 		They should appear as follows
 					4
-				   / \
-					  6
-					 / \
+       / \
+       6
+      / \
 					5   7
 		*/
 
@@ -76,11 +74,11 @@ namespace SearchTreeTest
 		By Adding 2 to a node wiht a value of 4, the new node
 		should be on the left. If we then add two children 1 and 3
 		They should appear as follows
-				 4
+     4
 				/ \
-			   2
-			  / \
-			 1   3
+      2
+     / \
+    1   3
 		*/
 
 		TEST_METHOD(TestAddLessThanChildren)
@@ -102,9 +100,9 @@ namespace SearchTreeTest
 			Test the count method returns the correct value.
 			to test this we will use the following tree
 					4
-				   / \
-				  2   6
-				 / \ / \
+       / \
+      2   6
+     / \ / \
 				1  3 5  7
 
 		*/
