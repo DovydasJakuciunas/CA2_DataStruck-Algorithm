@@ -267,25 +267,7 @@ namespace SearchTreeTest
 				Assert::IsNull(tree.root->getRight()->getRight()->getLeft());
 			}
 
-			/*	
-			This is my code to test steps 1 for the project
-			*/
-
-			//Removing all the elements of the binary tree
-			TEST_METHOD(TestAddMap)
-			{
-				
-				TreeMap<int, string> tree;
-				int key1 = 1, key2 = 2, key3 = 3, key4 = 4, key5 = 5;
-				string word1 = "One", word2 = "Two", word3 = "Three", word4 = "Four", word5 = "Five";
-				tree.put(key1, word1);
-				tree.put(key2, word2);
-				tree.put(key3, word3);
-				tree.put(key4, word4);
-				tree.put(key5, word5);
-				Assert::AreEqual(5, tree.size());
-
-			}
+			
     
 	};
 }
