@@ -17,7 +17,7 @@ public:
 	V get(K& key);
     int size();
 	void clear();
-
+	bool containsKey(K& key);
 
 
 };
@@ -42,13 +42,17 @@ void TreeMap<K, V>::put(K& key, V& value)
 	
 }
 
-template <class K,class V>
+template <class K, class V>
 V TreeMap<K, V>::get(K& key)
 {
 	auto it = keyValueMap.find(key);
 	if (it != keyValueMap.end())
 	{
 		return it->second;
+	}
+	else
+	{
+		return V(); 
 	}
 }
 
@@ -71,5 +75,11 @@ inline void TreeMap<K, V>::clear()
 	keyValueMap.clear();
 	
 	
+}
+
+template<typename K, typename V>
+inline bool TreeMap<K, V>::containsKey(K& key)
+{
+	return keyValueMap.find(key) != keyValueMap.end();
 }
 
