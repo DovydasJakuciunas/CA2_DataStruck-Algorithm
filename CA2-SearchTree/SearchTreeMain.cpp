@@ -31,10 +31,9 @@ int main()
 	Games gameVariable;
 	Entity<int, string> treeMap;
 
-	treeMap.
 
 
-	fstream MyFile("Top100Games.txt");
+	/*fstream MyFile("Top100Games.txt");
 	if (MyFile.is_open())
 	{
 		
@@ -49,10 +48,10 @@ int main()
 	else
 	{
 		cout << "******************Couldn't open the file******************"<<endl;
-	}
+	}*/
 
-	printBT(games.root);
+	//printBT(games.root);
 		
-	MyFile.close();
+	//MyFile.close();
 
 } 
