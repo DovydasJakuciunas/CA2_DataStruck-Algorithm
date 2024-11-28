@@ -1,7 +1,6 @@
 #pragma once
 #include "CppUnitTest.h"
 #include "../CA2-SearchTree/BinaryTree.h"
-#include "../CA2-SearchTree/TreeMap.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
