@@ -11,6 +11,7 @@ namespace TestMap
 	TEST_CLASS(TestEntity)
 	{
 	public:
+		//Testing to see if the constructor works
 		TEST_METHOD(TestConstructor)
 		{
 			Entity <int, int> tree;
@@ -25,11 +26,62 @@ namespace TestMap
 		TEST_METHOD(TestMultipleConstructor)
 		{
 			Entity <int, int> tree;
-			tree.add(1, 2);
-			tree.add(3, 4);
-			tree.add(5, 6);
+			tree.add(1, 3);
+			tree.add(3, 2);
+			tree.add(5, 1);
 			Assert::AreEqual(3, tree.count());
 
+		}
+
+		//Teststing clear function
+		TEST_METHOD(TestClear)
+		{
+			Entity <int, int> tree;
+			tree.add(1, 2);
+			tree.add(3, 3);
+			tree.add(5, 1);
+			Assert::AreEqual(3, tree.count());
+			tree.clear();
+			Assert::AreEqual(0, tree.count());
+		}
+
+		//Testing containsKey functions
+		TEST_METHOD(TestContainsKey)
+		{
+			Entity <int, int> tree;
+			tree.add(1, 3);
+			tree.add(3, 2);
+			tree.add(5, 1);
+			Assert::AreEqual(3, tree.count());
+			Assert::IsTrue(tree.containsKey(5));
+		}
+		TEST_METHOD(TestEmptyContainsKey)
+		{
+			Entity <int, int> tree;
+			Assert::IsFalse(tree.containsKey(5));
+		}
+		TEST_METHOD(TestMiddleContainsKey)
+		{
+			Entity <int, int> tree;
+			tree.add(5, 7);
+			tree.add(9, 6);
+			tree.add(3, 5);
+			tree.add(7, 4);
+			tree.add(1, 1);
+			tree.add(8, 2);
+			Assert::AreEqual(6, tree.count());
+			Assert::IsTrue(tree.containsKey(7));
+		}
+
+		//Testing getting functions
+		TEST_METHOD(TestGet)
+		{
+			Entity <int, int> tree;
+			tree.add(1, 3);
+			tree.add(3, 1);
+			tree.add(5, 2);
+			Assert::AreEqual(3, tree.count());
+			Assert::AreEqual(2, tree.get(1));
 		}
         
 	};

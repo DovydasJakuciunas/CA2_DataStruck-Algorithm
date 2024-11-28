@@ -22,21 +22,26 @@ public:
         out << "Key: " << b.key << ". Value: " << b.value;
         return out;
     }
-    bool operator <(Entity& b)
+    bool operator <(Entity& b)const
     {
         return key < b.key;
     }
-    bool operator>(Entity& b)
+    bool operator>(Entity& b)const
     {
         return key > b.key;
     }
-    bool operator==(Entity& b)
+    bool operator==(Entity& b)const
     {
         return key == b.key;
     }
 
     void add(K key, V value);
     int count();
+
+    //Stage 1
+	void clear();
+	bool containsKey(K key);
+	V& get(K key);
 };
 
 
@@ -56,3 +61,34 @@ int Entity<K, V>::count()
     return tree.count();
 
 }
+
+template<class K, class V>
+inline void Entity<K, V>::clear()
+{
+	tree.clear();
+}
+
+template<class K, class V>
+inline bool Entity<K, V>::containsKey(K key)
+{
+    try {
+        tree.get(Entity<K, V>(key, V()));   
+        return true;
+    }
+    catch (logic_error&) {
+        return false;
+    }
+}
+
+template<class K, class V>
+inline V& Entity<K, V>::get(K key)
+{
+    try {
+        auto& entity = tree.get(Entity<K, V>(key, V()));
+        return entity.value; 
+    }
+    catch (logic_error&) {
+		return V();
+    }
+}
+
