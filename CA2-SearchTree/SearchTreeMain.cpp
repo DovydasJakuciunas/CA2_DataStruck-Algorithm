@@ -4,6 +4,7 @@
 #include <queue>
 #include "BinaryTree.h"
 #include "Utils.h"
+#include "Entity.h"
 
 using namespace std;
 
@@ -28,7 +29,10 @@ int main()
 {
 	BinaryTree<Games> games;
 	Games gameVariable;
-	
+	Entity<int, string> treeMap;
+
+	treeMap.
+
 
 	fstream MyFile("Top100Games.txt");
 	if (MyFile.is_open())

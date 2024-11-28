@@ -40,6 +40,7 @@ BinaryTree<T>::BinaryTree(const BinaryTree<T>& other)
 	root = nullptr;
 	if(other.root != nullptr)
 		root = new BSTNode<T>(*other.root);
+	
 }
 template <class T>
 BinaryTree<T> BinaryTree<T>::operator=(const BinaryTree<T>& other)
