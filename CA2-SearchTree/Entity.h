@@ -42,6 +42,8 @@ public:
 	void clear();
 	bool containsKey(K key);
 	V& get(K key);
+    BinaryTree<K> keySet();
+    void collectKeys(BSTNode<Entity<K, V>>* node, BinaryTree<K>& keys);
 };
 
 
@@ -80,15 +82,31 @@ inline bool Entity<K, V>::containsKey(K key)
     }
 }
 
-template<class K, class V>
-inline V& Entity<K, V>::get(K key)
-{
+template <class K, class V>
+inline V& Entity<K, V>::get(K key) {
+    static V nullValue = V(); 
     try {
         auto& entity = tree.get(Entity<K, V>(key, V()));
-        return entity.value; 
+        return entity.value;                             
     }
     catch (logic_error&) {
-		return V();
+        return nullValue; 
     }
+}
+
+template <class K, class V>
+inline BinaryTree<K> Entity<K, V>::keySet() {
+    BinaryTree<K> keys;              
+    collectKeys(tree.root, keys);     
+    return keys;                      
+}
+
+template <class K, class V>
+void Entity<K, V>::collectKeys(BSTNode<Entity<K, V>>* node, BinaryTree<K>& keys) {
+    if (node == nullptr) return; 
+
+    collectKeys(node->getLeft(), keys);
+    keys.add(node->getItem().key);
+    collectKeys(node->getRight(), keys);
 }
 

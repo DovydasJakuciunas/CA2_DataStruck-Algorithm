@@ -74,15 +74,52 @@ namespace TestMap
 		}
 
 		//Testing getting functions
-		TEST_METHOD(TestGet)
+		TEST_METHOD(TestGetWord)
+		{
+			Entity <int, string> tree;
+			tree.add(1, "Hello");
+			tree.add(3, "Bye");
+			tree.add(5, "Hi");
+			Assert::AreEqual(3, tree.count());
+            Assert::AreEqual(string("Hi"), tree.get(5));
+		}
+
+		TEST_METHOD(TestGetNumber)
 		{
 			Entity <int, int> tree;
-			tree.add(1, 3);
-			tree.add(3, 1);
-			tree.add(5, 2);
-			Assert::AreEqual(3, tree.count());
-			Assert::AreEqual(2, tree.get(1));
+			tree.add(5, 7);
+			tree.add(9, 6);
+			tree.add(3, 5);
+			tree.add(7, 4);
+			tree.add(1, 1);
+			tree.add(8, 2);
+			int nullValue = tree.get(10);
+			Assert::AreEqual(0, tree.get(10));
 		}
-        
+
+		TEST_METHOD(TestGetNonExistentKey)
+		{
+			Entity <int, string> tree;
+			tree.add(1, "Hello");
+			tree.add(3, "Bye");
+			tree.add(5, "Hi");
+
+			tree.get(7); 
+			string& nullValue = tree.get(7); 
+			Assert::AreEqual(string(""), nullValue);
+            
+		}
+
+		TEST_METHOD(TestGetAfterClear)
+		{
+			Entity<int, string> tree;
+			tree.add(1, "Hello");
+			tree.add(3, "Bye");
+			tree.add(5, "Hi");
+			tree.clear();
+			string& nullValue = tree.get(1);
+			Assert::AreEqual(string(""), nullValue);
+		}
+		
 	};
 }
