@@ -11,7 +11,7 @@ public:
 	BinaryTree();
 	BinaryTree(const BinaryTree<T> &other);
 	BinaryTree<T> operator=(const BinaryTree<T>& other);
-	void put(T& item);
+	void add(T& item);
 	bool remove(T& item);
 	void clear();
 	int count();
@@ -26,6 +26,7 @@ public:
 	T* toArray();
 	~BinaryTree();
 
+	
 };
 
 template <class T>
@@ -55,7 +56,7 @@ BinaryTree<T> BinaryTree<T>::operator=(const BinaryTree<T>& other)
 
 }
 template <class T>
-void BinaryTree<T>::put(T& item)
+void BinaryTree<T>::add(T& item)
 {
 	if (root == nullptr)
 	{
@@ -221,8 +222,6 @@ void BinaryTree<T>::printInOrder(BSTNode<T> *node)
 		cout << node->getItem() << " ";
 		printInOrder(node->getRight());
 	}
-
-	
 }
 
 template<class T>
@@ -259,3 +258,4 @@ void BinaryTree<T>::printPostOrder(BSTNode<T> *node)
 		cout << node->getItem() << " ";
 	}
 }
+

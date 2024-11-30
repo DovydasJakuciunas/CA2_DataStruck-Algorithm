@@ -32,6 +32,9 @@
     <Text Include="Top100Games.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="UniqueWords.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SearchTreeMain.cpp">

@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Top100Games.txt" />
+    <Text Include="UniqueWords.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SearchTreeMain.cpp" />
