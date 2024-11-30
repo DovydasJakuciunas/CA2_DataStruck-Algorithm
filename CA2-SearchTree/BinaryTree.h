@@ -11,7 +11,7 @@ public:
 	BinaryTree();
 	BinaryTree(const BinaryTree<T> &other);
 	BinaryTree<T> operator=(const BinaryTree<T>& other);
-	void add(T& item);
+	void put(T& item);
 	bool remove(T& item);
 	void clear();
 	int count();
@@ -55,7 +55,7 @@ BinaryTree<T> BinaryTree<T>::operator=(const BinaryTree<T>& other)
 
 }
 template <class T>
-void BinaryTree<T>::add(T& item)
+void BinaryTree<T>::put(T& item)
 {
 	if (root == nullptr)
 	{

@@ -88,7 +88,7 @@ void createBalancedTree(BinaryTree<int>& tree, int min, int max, int* arr)
 	if (min < max)
 	{
 		int mid = (min + max) / 2;
-		tree.add(arr[mid]);
+		tree.put(arr[mid]);
 		createBalancedTree(tree, min, mid, arr);
 		createBalancedTree(tree, mid + 1, max, arr);
 	}

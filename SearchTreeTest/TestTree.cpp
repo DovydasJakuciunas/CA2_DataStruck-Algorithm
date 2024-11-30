@@ -14,7 +14,7 @@ namespace SearchTreeTest
 		{
 			BinaryTree<int> tree;
 			int x = 5;
-			tree.add(x);
+			tree.put(x);
 			Assert::IsNotNull(tree.root);
 			Assert::AreEqual(5, tree.root->getItem());
 		}
@@ -24,8 +24,8 @@ namespace SearchTreeTest
 		{
 			BinaryTree<int> tree;
 			int x = 2, y = 1;
-			tree.add(x);
-			tree.add(y);
+			tree.put(x);
+			tree.put(y);
 			Assert::IsNotNull(tree.root);
 			Assert::AreEqual(2, tree.root->getItem());
 			BSTNode<int>* left = tree.root->getLeft();
@@ -41,8 +41,8 @@ namespace SearchTreeTest
 		{
 			BinaryTree<int> tree;
 			int x = 2, y = 3;
-			tree.add(x);
-			tree.add(y);
+			tree.put(x);
+			tree.put(y);
 			Assert::IsNotNull(tree.root);
 			Assert::AreEqual(2, tree.root->getItem());
 			BSTNode<int>* right = tree.root->getRight();
@@ -74,13 +74,13 @@ namespace SearchTreeTest
 		{
 			BinaryTree<int> tree;
 			int a = 4, b = 2, c = 6, d = 1, e = 3, f = 5, g = 7;
-			tree.add(a);
-			tree.add(b);
-			tree.add(c);
-			tree.add(d);
-			tree.add(e);
-			tree.add(f);
-			tree.add(g);
+			tree.put(a);
+			tree.put(b);
+			tree.put(c);
+			tree.put(d);
+			tree.put(e);
+			tree.put(f);
+			tree.put(g);
 
 			Assert::AreEqual(7, tree.count());
 		}
@@ -91,13 +91,13 @@ namespace SearchTreeTest
 		{
 			BinaryTree<int> tree;
 			int a = 4, b = 2, c = 6, d = 1, e = 3, f = 5, g = 7 , h = 8;
-			tree.add(a);
-			tree.add(b);
-			tree.add(c);
-			tree.add(d);
-			tree.add(e);
-			tree.add(f);
-			tree.add(g);
+			tree.put(a);
+			tree.put(b);
+			tree.put(c);
+			tree.put(d);
+			tree.put(e);
+			tree.put(f);
+			tree.put(g);
 			Assert::AreEqual(7, tree.count());
 			tree.remove(h);
 			Assert::AreEqual(7, tree.count());
@@ -126,13 +126,13 @@ namespace SearchTreeTest
 		{
 			BinaryTree<int> tree;
 			int a = 4, b = 2, c = 6, d = 1, e = 3, f = 5, g = 7;
-			tree.add(a);
-			tree.add(b);
-			tree.add(c);
-			tree.add(d);
-			tree.add(e);
-			tree.add(f);
-			tree.add(g);
+			tree.put(a);
+			tree.put(b);
+			tree.put(c);
+			tree.put(d);
+			tree.put(e);
+			tree.put(f);
+			tree.put(g);
 			Assert::AreEqual(7, tree.count());
 			tree.remove(f);
 			Assert::AreEqual(6, tree.count());
@@ -164,13 +164,13 @@ namespace SearchTreeTest
 		{
 			BinaryTree<int> tree;
 			int a = 4, b = 2, c = 6, d = 1, e = 5, f = 7, g = 8;
-			tree.add(a);
-			tree.add(b);
-			tree.add(c);
-			tree.add(d);
-			tree.add(e);
-			tree.add(f);
-			tree.add(g);
+			tree.put(a);
+			tree.put(b);
+			tree.put(c);
+			tree.put(d);
+			tree.put(e);
+			tree.put(f);
+			tree.put(g);
 			Assert::AreEqual(7, tree.count());
 			tree.remove(f);
 			Assert::AreEqual(6, tree.count());
@@ -198,13 +198,13 @@ namespace SearchTreeTest
 		{
 			BinaryTree<int> tree;
 			int a = 4, b = 2, c = 6, d = 1, e = 3, f = 5, g = 7;
-			tree.add(a);
-			tree.add(b);
-			tree.add(c);
-			tree.add(d);
-			tree.add(e);
-			tree.add(f);
-			tree.add(g);
+			tree.put(a);
+			tree.put(b);
+			tree.put(c);
+			tree.put(d);
+			tree.put(e);
+			tree.put(f);
+			tree.put(g);
 			Assert::AreEqual(7, tree.count());
 			tree.remove(b);
 			Assert::AreEqual(6, tree.count());
@@ -242,21 +242,21 @@ namespace SearchTreeTest
 			{
 				BinaryTree<int> tree;
 				int a = 8, b = 4, c = 12, d = 2, e = 6, f = 1, g = 3, h = 5, i = 7, j = 10, k = 14, l = 9, m = 11, n = 13, o = 15;	
-				tree.add(a);
-				tree.add(b);
-				tree.add(c);
-				tree.add(d);
-				tree.add(e);
-				tree.add(f);
-				tree.add(g);
-				tree.add(h);
-				tree.add(i);
-				tree.add(j);
-				tree.add(k);
-				tree.add(l);
-				tree.add(m);
-				tree.add(n);
-				tree.add(o);
+				tree.put(a);
+				tree.put(b);
+				tree.put(c);
+				tree.put(d);
+				tree.put(e);
+				tree.put(f);
+				tree.put(g);
+				tree.put(h);
+				tree.put(i);
+				tree.put(j);
+				tree.put(k);
+				tree.put(l);
+				tree.put(m);
+				tree.put(n);
+				tree.put(o);
 				Assert::AreEqual(15, tree.count());
 				Assert::IsNotNull(tree.root->getRight()->getRight()->getLeft());
 				Assert::AreEqual(13, tree.root->getRight()->getRight()->getLeft()->getItem());

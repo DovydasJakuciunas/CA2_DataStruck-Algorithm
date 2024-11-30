@@ -35,8 +35,8 @@ public:
         return key == b.key;
     }
 
-    void add(K key, V value);
-    int count();
+    void put(K key, V value);
+    int size();
 
     //Stage 1
 	void clear();
@@ -44,20 +44,21 @@ public:
 	V& get(K key);
     BinaryTree<K> keySet();
     void collectKeys(BSTNode<Entity<K, V>>* node, BinaryTree<K>& keys);
+
 };
 
 
 template<class K, class V>
-inline void Entity<K, V>::add(K key, V value)
+inline void Entity<K, V>::put(K key, V value)
 {
     {
         Entity<K, V> entity(key, value);
-        tree.add(entity);
+        tree.put(entity);
     }
 }
 
 template<class K, class V>
-int Entity<K, V>::count()
+int Entity<K, V>::size()
 {
 
     return tree.count();
@@ -106,7 +107,9 @@ void Entity<K, V>::collectKeys(BSTNode<Entity<K, V>>* node, BinaryTree<K>& keys)
     if (node == nullptr) return; 
 
     collectKeys(node->getLeft(), keys);
-    keys.add(node->getItem().key);
+    keys.put(node->getItem().key);
     collectKeys(node->getRight(), keys);
 }
+
+
 
