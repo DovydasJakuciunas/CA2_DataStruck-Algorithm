@@ -6,7 +6,7 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
 
-namespace TestMap	//Tests for put() has been used on near all tests
+namespace TestMap	//Tests for put() and size() has been used on near all tests
 {
 	TEST_CLASS(TestEntity)
 	{
@@ -143,5 +143,49 @@ namespace TestMap	//Tests for put() has been used on near all tests
 			Assert::AreEqual(0, keys.count());
 		}
 
+		//Testing removeKey function
+		TEST_METHOD(TestRemoveKey)
+		{
+			Entity<int, string> tree;
+			tree.put(1, "Hello");
+			tree.put(3, "Bye");
+			tree.put(5, "Hi");
+			Assert::AreEqual(3, tree.size());
+			tree.removeKey(1);
+			Assert::AreEqual(2, tree.size());
+		}
+
+		TEST_METHOD(TestNoTreeRemoveKey)
+		{
+			Entity<int, string> tree;
+			Assert::AreEqual(0, tree.size());
+			tree.removeKey(1);
+			Assert::AreEqual(0, tree.size());
+		}
+
+		TEST_METHOD(TestNonExistentKey)
+		{
+			Entity<int, string> tree;
+			tree.put(1, "Hello");
+			tree.put(3, "Bye");
+			tree.put(5, "Hi");
+			Assert::AreEqual(3, tree.size());
+			tree.removeKey(7);
+			Assert::AreEqual(3, tree.size());
+		}
+
+		//Test Operatro funtionality
+		TEST_METHOD(TestOperatorModifyKey)
+		{
+			Entity<int, string> tree;
+			tree.put(1, "Hello");
+			tree.put(3, "Bye");
+			tree.put(5, "Hi");
+			Assert::AreEqual(3, tree.size());
+			Assert::AreEqual(string("Hi"), tree[5]);
+			tree[5] = "Goodbye";
+			Assert::AreEqual(string("Goodbye"), tree[5]);
+		}
+		
 	};
 }
