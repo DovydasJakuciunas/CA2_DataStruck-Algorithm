@@ -2,7 +2,6 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
-#include <cctype>
 
 #include "Utils.h"
 #include "Entity.h"
@@ -11,16 +10,30 @@ using namespace std;
 
 string firstLetterCap(const string& str);
 
+int Stage2(bool& retFlag);
+
 int main()
 {
-	Entity<char, BinaryTree<string>> treeMap; //Created map of Entity with char and BinaryTree for string
+    //Extracted Method for Stage 2
+    /*
+     bool retFlag;
+    int retVal = Stage2(retFlag);
+    if (retFlag) return retVal;
+    */
+   
+}
+
+int Stage2(bool& retFlag)
+{
+    retFlag = true;
+    Entity<char, BinaryTree<string>> treeMap; //Created map of Entity with char and BinaryTree for string
     ifstream file("UniqueWords.txt");
     string word;
 
     if (file.is_open()) {
         while (file >> word) {
             word = firstLetterCap(word); //First letter capital, rest lower
-            treeMap[word[0]].add(word); 
+            treeMap[word[0]].add(word);
         }
         file.close();
     }
@@ -35,15 +48,17 @@ int main()
     char letter;
     cout << "Enter a letter to see words: ";
     cin >> letter;
-	letter = toupper(letter);
-	if (treeMap.get(letter).count() == 0)
-	{
-		cout << "No words found for the letter " << letter << endl;
-	}
+    letter = toupper(letter);
+    if (treeMap.get(letter).count() == 0)
+    {
+        cout << "No words found for the letter " << letter << endl;
+    }
     else
     {
-        treeMap.printWords(letter); 
+        treeMap.printWords(letter);
     }
+    retFlag = false;
+    return {};
 }
 
 string firstLetterCap(const string& str) {
