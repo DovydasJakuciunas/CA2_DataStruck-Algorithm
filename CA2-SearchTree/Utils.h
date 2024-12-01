@@ -31,9 +31,13 @@ struct Games
 		this->genre = genre;
 		this->rating = rating;
 	}
-	friend ostream& operator<<(ostream& out, Games& b)
-	{
-		out <<"" << b.name << " by" << b.developer << ",Year: " << b.year << ",Genre: "<<b.genre<<",Rating "<<b.rating;
+	friend ostream& operator<<(ostream& out, const Games& b) {
+		out << "Name: " << b.name << "\n"
+			<< "Developer: " << b.developer << "\n"
+			<< "Year: " << b.year << "\n"
+			<< "Genre: " << b.genre << "\n"
+			<< "Rating: " << b.rating << "\n"
+			<< "--------------------------\n";
 		return out;
 	}
 	bool operator <(Games& b)
