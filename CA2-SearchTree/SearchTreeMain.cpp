@@ -14,8 +14,10 @@ string firstLetterCap(const string& str);
 
 int Stage2(bool& retFlag);
 
-void loadCSV(const string& filePath, BinaryTree<Games>& tree);
-void displayMenu(BinaryTree<Games>& tree);
+void loadCSV(const string& fileLoc, BinaryTree<Games>& tree, vector<Games>& gameList);
+void displayMenu(const BinaryTree<Games>& tree, const vector<Games>& gameList);
+
+void createIndex(const vector<Games>& gameList, const string& field);
 
 
 int main()
@@ -28,21 +30,21 @@ int main()
     */
    
     BinaryTree<Games> gameTree;
+    vector<Games> gameList;
 
-    // Load data from the CSV file into the binary tree
-    loadCSV("Game_Data.csv", gameTree);
+    // Load data from CSV file
+    loadCSV("Game_Data.csv", gameTree, gameList);
 
-    // Display the menu for user interaction
-    displayMenu(gameTree);
+    // Call menu
+    displayMenu(gameTree, gameList);
 
-    return 0;
 
 }
 
 int Stage2(bool& retFlag)
 {
     retFlag = true;
-    Entity<char, BinaryTree<string>> treeMap; //Created map of Entity with char and BinaryTree for string
+    Entity<char, BinaryTree<string>> treeMap; 
     ifstream file("UniqueWords.txt");
     string word;
 
@@ -76,111 +78,261 @@ int Stage2(bool& retFlag)
     retFlag = false;
     return {};
 }
-
 string firstLetterCap(const string& str) {
     if (str.empty()) return str; 
     string upper = str;
     upper[0] = toupper(upper[0]);
-    transform(upper.begin() + 1, upper.end(), upper.begin() + 1, ::tolower);
+    transform(upper.begin() + 1, upper.end(), upper.begin() + 1, tolower);
     return upper;
 }
 
-void loadCSV(const string& filePath, BinaryTree<Games>& tree) {
-    ifstream file(filePath);
+
+void loadCSV(const string& fileLoc, BinaryTree<Games>& tree, vector<Games>& gameList) {
+    ifstream file(fileLoc);
     if (!file.is_open()) {
-        cerr << "Error: Could not open file " << filePath << "\n";
+        cout << "Error: Could not open file " << fileLoc << "\n";
         return;
     }
 
     string line;
-    int lineNumber = 0;
     while (getline(file, line)) {
-        lineNumber++;
         stringstream ss(line);
-        string name, developer, genre, yearStr, ratingStr;
+        string name, developer, genre, yearString, ratingString;    
 
-        // Extract fields from the CSV line
         getline(ss, name, ',');
         getline(ss, developer, ',');
-        getline(ss, yearStr, ',');
+        getline(ss, yearString, ',');
         getline(ss, genre, ',');
-        getline(ss, ratingStr, ',');
+        getline(ss, ratingString, ',');
 
-        try {
-            // Trim whitespace
-            name = name.empty() ? "Unknown" : name;
-            developer = developer.empty() ? "Unknown" : developer;
-            genre = genre.empty() ? "Unknown" : genre;
+        
+        if (!yearString.empty() && all_of(yearString.begin(), yearString.end(), isdigit)) //Making sure no mistakes in year formation 
+        {
+            int year = stoi(yearString);
+            float rating = stof(ratingString);
 
-            // Convert year and rating with validation
-            if (!yearStr.empty() && all_of(yearStr.begin(), yearStr.end(), ::isdigit)) {
-                int year = stoi(yearStr);
-
-                float rating = stof(ratingStr); // Convert rating to float
-                if (rating < 0.0 || rating > 10.0) {
-                    throw invalid_argument("Invalid rating range.");
-                }
-
-                // Create a Games object and add it to the binary tree
-                Games game(name, developer, year, genre, rating);
-                tree.add(game);
-            }
-            else {
-                throw invalid_argument("Invalid year or empty fields.");
-            }
+			Games game(name, developer, year, genre, rating);   
+            tree.add(game);        
+            gameList.push_back(game); 
         }
-        catch (const exception& e) {
-            cerr << "Error on line " << lineNumber << ": " << e.what() << " | Skipping line: " << line << "\n";
-        }
+
     }
-
     file.close();
-    cout << "Data successfully loaded into the binary tree.\n";
 }
 
-void createIndex(BinaryTree<Games>& tree, const string& field) {
+void createIndex(const vector<Games>& gameList, const string& field) {
     map<string, int> indexMap;
-    vector<Games> gamesList;
-    tree.printInOrder(); // Assuming this outputs data to console; modify if necessary
 
-    cout << "\nIndex for field: " << field << "\n";
-    for (auto& game : gamesList) {
+	//Create index based on the field
+    for (const auto& game : gameList) {
         string key;
-        if (field == "name") key = game.name;
-        else if (field == "developer") key = game.developer;
-        else if (field == "genre") key = game.genre;
-        else if (field == "year") key = to_string(game.year);
-        else if (field == "rating") key = to_string(game.rating);
+        if (field == "name") {
+            key = game.name;
+        }
+        else if (field == "developer") {
+            key = game.developer;
+        }
+        else if (field == "year") {
+            key = to_string(game.year);
+        }
+        else if (field == "genre") {
+            key = game.genre;
+        }
+        else if (field == "rating") {
+            key = to_string(game.rating);
+        }
         else {
-            cout << "Invalid field.\n";
+            cerr << "Invalid field: " << field << "\n";
+            return;
+        }
+
+        indexMap[key]++;
+    }
+
+    //Getting a neat | print out
+    size_t maxLength = 0;
+    for (const auto& pair : indexMap) {
+        maxLength = max(maxLength, pair.first.length());
+    }
+
+    // Display the index
+    cout << "\nIndex for field: " << field << "\n";
+    cout << "Value" << string(maxLength - 5 + 2, ' ') << "| Count\n";
+    cout << string(maxLength + 8, '-') << "\n";
+
+    for (const auto& pair : indexMap) {
+        cout << pair.first << string(maxLength - pair.first.length() + 2, ' ') << "| " << pair.second << "\n";
+    }
+}
+template <class T, class FieldExtractor>
+void createIndex(const vector<Games>& items, const string& fieldName) {
+    map<string, int> indexMap;
+
+    //Get item based on field
+    for (const auto& game : items) {
+        string key;
+        if (fieldName == "name") {
+            key = game.name;
+        }
+        else if (fieldName == "developer") {
+            key = game.developer;
+        }
+        else if (fieldName == "year") {
+            key = to_string(game.year);
+        }
+        else if (fieldName == "genre") {
+            key = game.genre;
+        }
+        else if (fieldName == "rating") {
+            key = to_string(game.rating);
+        }
+        else {
+            cerr << "Invalid field: " << fieldName << "\n";
             return;
         }
         indexMap[key]++;
-
     }
 
+    //Makes the | print out neater
+    size_t maxLength = 0;
     for (const auto& pair : indexMap) {
-        cout << pair.first << ": " << pair.second << " entries\n";
+        maxLength = max(maxLength, pair.first.length());
+    }
+
+    // Display the index
+    cout << "\nIndex for field: " << fieldName << "\n";
+    cout << "Value" << string(maxLength - 5 + 2, ' ') << "| Count\n";   //For making the | neater
+    cout << string(maxLength + 8, '-') << "\n";
+
+    for (const auto& pair : indexMap) {
+        cout << pair.first << string(maxLength - pair.first.length() + 2, ' ') << "| " << pair.second << "\n";  //Allignes the | with each value and based on count
     }
 }
 
-void displayMenu(BinaryTree<Games>& tree) {
+template <class T, class Predicate >    //Overall predicate to print out filterd items
+vector<T> filterItems(const vector<T>& items, Predicate predicate) {
+    vector<T> filteredItems;
+
+    for (const auto& item : items) {
+        if (predicate(item)) {
+            filteredItems.push_back(item);
+        }
+    }
+
+    return filteredItems;
+}
+
+void displayMenu(const BinaryTree<Games>& tree, const vector<Games>& gameList) {
     int choice;
+
     while (true) {
         cout << "\nMenu:\n";
-        cout << "1. Display all games in order\n";
-        cout << "2. Exit\n";
+        cout << "1. Display all games\n";
+        cout << "2. Create an index based on a specific field\n";
+        cout << "3. Filter games by a predicate (genre,rating,developer)\n";
+        cout << "4. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
-        if (choice == 1) {
-            cout << "\nGames in sorted order:\n";
-            tree.printInOrder(); // Display all games in sorted order
+        switch (choice) {
+        case 1:
+            for (const auto& game : gameList) {
+                cout << game << "\n";
+            }
+            break;
+
+        case 2: {
+            string field;
+            cout << "Enter the field to index (name/developer/year/genre/rating): ";
+            cin >> field;
+
+            createIndex(gameList, field);
+            break;
         }
-        else if (choice == 2) {
-            break; // Exit the program
+
+        case 3: 
+        {
+            string field;
+            cout << "Enter the field to filter by (genre/rating/developer): ";
+            cin >> field;
+
+            if (field == "genre") {
+                string genreFilter;
+                cout << "Enter genre to filter by: ";
+                cin >> genreFilter;
+
+                // Use a predicate to filter games by genre
+                auto filteredGames = filterItems(gameList, [&](const Games& game) {
+                    return game.genre == genreFilter;
+                    });
+
+                cout << "\nFiltered games:\n";
+                for (const auto& game : filteredGames) {
+                    cout << game << "\n";
+                }
+            }
+            else if (field == "rating") 
+            {
+                float ratingFilter;
+                cout << "Enter value to search by: ";
+                cin >> ratingFilter;
+
+                // Check if the input is valid
+                if (cin.fail()) {
+                    cin.clear(); 
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+                    cout << "Not in the tree. Go for another number:\n";
+                    break;
+                }
+
+                // Use a predicate to filter games by rating
+                auto filteredGames = filterItems(gameList, [&](const Games& game) {
+                    return game.rating == ratingFilter;
+                    });
+
+                cout << "\nFiltered games:\n";
+                for (const auto& game : filteredGames) {
+                    cout << game << "\n";
+                }
+            }
+            else if (field == "developer")
+            {
+                string devFilter;
+                cout << "Enter developer to filter by: ";
+                cin.ignore(); // Ignore any leftover input
+                getline(cin, devFilter); // Allow full names with spaces
+
+                if (devFilter.empty()) {
+                    cout << "Invalid input. Developer name cannot be empty.\n";
+                    break;
+                }
+
+                // Using predicate to filter by developer
+                auto devFilteredGames = filterItems(gameList, [&](const Games& game) {
+                    return game.developer == devFilter;
+                    });
+
+                if (devFilteredGames.empty()) {
+                    cout << "No games found for developer: " << devFilter << "\n";
+                }
+                else {
+                    cout << "\nFiltered games:\n";
+                    for (const auto& game : devFilteredGames) {
+                        cout << game << "\n";
+                    }
+                }
+				
+            }
+            else {
+                cout << "Invalid field: " << field << ". Please choose 'genre','rating' or 'developer'.\n";
+            }
+            break;
         }
-        else {
+
+        case 4:
+            return;
+
+        default:
             cout << "Invalid choice. Try again.\n";
         }
     }

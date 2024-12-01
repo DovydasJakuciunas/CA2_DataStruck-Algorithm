@@ -108,3 +108,29 @@ void balance(BinaryTree<int>& tree)
 	delete[] arr;
 }
 
+struct GetFieldByName {
+	string field;
+
+	GetFieldByName(const string& field) : field(field) {}
+
+	string operator()(const Games& game) const {
+		if (field == "name") {
+			return game.name;
+		}
+		else if (field == "developer") {
+			return game.developer;
+		}
+		else if (field == "genre") {
+			return game.genre;
+		}
+		else if (field == "year") {
+			return to_string(game.year);
+		}
+		else if (field == "rating") {
+			return to_string(game.rating);
+		}
+		else {
+			throw invalid_argument("Invalid field: " + field);
+		}
+	}
+};

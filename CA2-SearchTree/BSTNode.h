@@ -47,7 +47,6 @@ BSTNode<T>::BSTNode(const BSTNode<T>& other)
 
 
 template <class T>
-
 BSTNode<T>* BSTNode<T>::operator=(const BSTNode<T>& other)
 
 {

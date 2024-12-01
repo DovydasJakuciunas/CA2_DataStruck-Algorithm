@@ -133,11 +133,10 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Top100Games.txt" />
-    <Text Include="UniqueWords.txt" />
+    <ClCompile Include="SearchTreeMain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SearchTreeMain.cpp" />
+    <None Include="C:\Users\dovyj\Downloads\Game_Data.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
